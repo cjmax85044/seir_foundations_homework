@@ -1,0 +1,3 @@
+Spotter = Dee Jones
+Teammates = Dee Jones, Willardth Smith
+Days + Times when the team meets = Mon 7pm - 8:30pm EST
