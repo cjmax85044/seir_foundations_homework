@@ -13,13 +13,13 @@ I created the file EMP-Cloud-Coast-to-Coast_corey_joffrion.txt and uploaded it t
 
 Complete the following assignments:
 - Bahga — Blue Book	Pages 25–53 and 69–80
+- SAA Exam Guide Chapters 1 and 4
 - AWS Developer	Chapters 2 and 5
 
 ## Assigned Videos:
-* Udemy — Stéphane Maarek 
-* complete quiz for Sections 5 and 6, upload to Github
-* EC2 Instance Types | Your Ultimate Guide for AWS Certification!
-* Git Bash, Bash Basics
+- Udemy — Stéphane Maarek 
+- EC2 Instance Types | Your Ultimate Guide for AWS Certification!
+- Git Bash, Bash Basics
 
 
 ## Deliverables
