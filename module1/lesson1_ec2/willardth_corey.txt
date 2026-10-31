@@ -1,0 +1,17 @@
+This file represents five things I learned from this week's exercises and five things my partner learned through the exercises.
+
+My thoughts:
+1. Not understanding why the requirements were so structured. It felt like a change from class up to this point. Now I have to wait to see the class' respond before beginning any assignments.
+2. There may be an art to troubleshooting. I did run into an issue and could not recover. I had to start again and then it worked. Have to guage if it's worth it to troubleshoot or start over.
+3. I came a cross a few ways to list the path to a file in terminal.
+4. While trying to correct a path in terminal, I confimed it is much easier to do it without breaks in the path due to spaces.
+5. I am trying to enter [more] tags for documentation purposes. I did see where you can add the EC2 name during setup. 
+
+My Spotter's thoughts:
+1.
+2.
+3.
+4.
+5.
+
+

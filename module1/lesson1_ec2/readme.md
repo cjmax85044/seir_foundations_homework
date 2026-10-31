@@ -20,7 +20,8 @@
 LAB RESULTS
 | Run | Date | Time Zone | Instance ID | Boot time (UTC) | Public IPv4 DNS | Screenshot | Terminated|
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 10/30/26 | MDT | i-0626a190ca3afa79f | 17:12 | 54.159.21.75 | yes | scoreybank1_10-30-26_35.172.185.243_lab_screenshot.png |
-
+| 1 | 10/30/26 | MDT | i-0626a190ca3afa79f | 17:12 | 54.159.21.75 | yes | coreybank1_10-30-26_35.172.185.243_lab_screenshot.png |
+| 2 | 10/30/26 | MDT | i-087e7195314094918 | 22:50 | 18.232.150.228 | yes | coreybank2_10-30-26_18.232.150.228_lab_screenshot.png |
+| 3 | 10/30/26 | MDT | i-04f0d84fc9e728bb8 | 23:30 | 54.197.37.45 | yes | coreybank2_10-30-26_54.197.37.45_lab_screenshot.png |
 
 All screenshots in the lesson1_3c2/screenshots directory.
