@@ -1,0 +1,89 @@
+The challenge is at Step 8 of [runbook.md](runbook.md:493). It assumes Steps 0–7 already work: the bank is installed, uvicorn starts, and `/ask` answers with `"source": "offline-knowledge-base"`. Do the steps below in order.
+
+---
+
+### Step 1 — Check the IAM role first (runbook requirement #1)
+
+Your EC2 instance needs an IAM role that's allowed to call Bedrock. The runbook says your **instructor** creates this role (the policy is in `iam/PERMISSIONS.md`). On your EC2 instance, check whether a role is attached:
+
+```bash
+aws sts get-caller-identity
+```
+
+If the `Arn` in the output contains `assumed-role/...`, you have a role. If you get an error or no role, ask your instructor. Without the role, nothing else below will work.
+
+### Step 2 — Enable a Claude model in the Bedrock console
+
+1. Sign in to the AWS Console and **pick your region first** (top-right corner). Use **US East (N. Virginia) / us-east-1** unless your instructor says otherwise. Write down the region you used.
+2. Search for **Amazon Bedrock** and open it.
+3. In the left menu, find **Model access**, click **Modify model access** (or **Enable specific models**), check a Claude model, and submit.
+   - The first time you use Anthropic models, AWS may ask you to fill in a short use-case form. Fill it in and submit it.
+   - AWS has been changing this page. If you can't find **Model access**, your account may enable models automatically the first time you call them. In that case, open the model under **Model catalog** and check that it doesn't say access is required.
+4. Wait until the model's status says **Access granted**.
+
+### Step 3 — Copy the inference profile ID (not the base model ID)
+
+This is the tricky part of the challenge.
+
+1. In the Bedrock left menu, open **Cross-region inference** (it may be called **Inference profiles**).
+2. Find the Claude model you just enabled.
+3. Copy its **Inference profile ID**. It starts with `us.` and looks like this:
+   ```
+   us.anthropic.claude-<model-name>-<date>-v1:0
+   ```
+   - ✅ Right: `us.anthropic.claude-...`
+   - ❌ Wrong: `anthropic.claude-...` (the base model ID, which has no `us.`)
+   - ❌ Wrong: the long ID that starts with `arn:aws:bedrock:...` (copy the ID, not the ARN)
+
+### Step 4 — Restart uvicorn with the environment variables set (Window 1)
+
+The variables have to be set **in the same terminal as uvicorn, before uvicorn starts**. In Window 1, the one running the bank:
+
+1. Press `Ctrl+C` to stop the server.
+2. Make sure you're in the right folder with the venv active:
+   ```bash
+   cd /opt/balerica-bank
+   ```
+   ```bash
+   source venv/bin/activate
+   ```
+3. Set the model ID, pasting the ID you copied in Step 3:
+   ```bash
+   export BEDROCK_MODEL_ID="us.anthropic.claude-PASTE-YOURS-HERE"
+   ```
+4. Set the region. It must match the region from Step 2 (runbook requirement #2):
+   ```bash
+   export AWS_REGION="us-east-1"
+   ```
+5. Check both values:
+   ```bash
+   echo $BEDROCK_MODEL_ID $AWS_REGION
+   ```
+6. Start the bank again:
+   ```bash
+   uvicorn app.main:app --host 0.0.0.0 --port 8000
+   ```
+
+### Step 5 — Test it (Window 2)
+
+```bash
+curl -X POST http://127.0.0.1:8000/ask -H 'Content-Type: application/json' -d '{"question": "What does return code 8 mean?"}'
+```
+
+**Success:** the response no longer says `"source": "offline-knowledge-base"`, and the answer comes from Claude through Bedrock.
+
+---
+
+### If it still says `offline-knowledge-base`
+
+The fallback doesn't show an error, so a mistake in any of the three requirements looks the same. Check them in this order:
+
+| # | Check | Common mistake |
+|---|---|---|
+| 1 | IAM role attached, with Bedrock permission | No role, or the policy is missing (ask your instructor) |
+| 2 | `AWS_REGION` = the region where you enabled the model | You enabled the model in one region but set a different one |
+| 3 | `BEDROCK_MODEL_ID` is the `us.` inference profile ID | You used the base ID or the ARN, or left a typo or extra space |
+
+Also check:
+- **`export` only lasts for that one terminal.** If you open a new terminal or SSH in again, run the `export` lines again before starting uvicorn.
+- **Look in Window 1 after you call `/ask`.** Even though the `curl` output shows no error, uvicorn's log may say what went wrong, such as `AccessDeniedException` or `ValidationException`.

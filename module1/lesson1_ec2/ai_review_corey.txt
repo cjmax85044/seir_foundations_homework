@@ -1,0 +1,11 @@
+## AI Portion of Lab
+
+###Requirements:
+Review the Lesson 1 runbook with your preferred AI
+
+I submitted a prompt to Claude to complete the task. I think I successfully:
+- passed the runbook.md file to Claude
+- gave Claude parameters for completing the task in this review
+- connected to AWS' AI component and started a test session
+
+After opening and connecting to Bedrock, I was not able to make heads or tails on how to proceed.
