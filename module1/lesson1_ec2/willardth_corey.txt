@@ -8,10 +8,10 @@ My thoughts:
 5. I am trying to enter [more] tags for documentation purposes. I did see where you can add the EC2 name during setup. 
 
 My Spotter's thoughts:
-1.
-2.
-3.
-4.
-5.
+1. On thing I learned is I have to get things simplied in my head. 
+2. AI helped because I can put the homework assignment in AI and get a simplied point by point picture of what i need to do 
+3. I learned I need to be better at documenting as I go.
+4. I learned that I can use AI to take info from screenshots to fill out items I need.  Saves time
+5. I'm going to use AI to help sort the different databases by its similarities and its differences. Having a group just simply helps
 
 
