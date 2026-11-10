@@ -99,7 +99,7 @@ Output:
 
 1. Set SLACK_ALERT_SEVERITY=CRITICAL in .env and rerun script 2. Predict first: how many of the four messages will arrive?
 
-Prediciton = 1
+$nbsp;$nbsp;$nbsp;$nbsp;$nbsp;Prediction = 1
 
 > INFO     -> skipped by your threshold
 > WARNING  -> skipped by your threshold
@@ -110,13 +110,13 @@ Prediciton = 1
 
 > Skipped. Check .env: SLACK_ALERTS_ENABLED must be true and SLACK_ALERT_SEVERITY=INFO (see homework README).
 
-This could be useful during maintenance windows because a lot of alerts may be generated that don't need to be addressed.
+$nbsp;$nbsp;$nbsp;$nbsp;$nbsp;This could be useful during maintenance windows because a lot of alerts may be generated that don't need to be addressed.
 
 3. Open hw4_disk_watch.py in nano and change the WARNING threshold from 75 to a number below your current disk usage. Rerun. Did the severity change?
 
 > Disk is 25.4% used -> severity WARNING.
 > Skipped by threshold — that can be correct behavior!
 
-When I edited the threshold from 75% to 5% and ran the script, it changed the severity level to WARNING.
+$nbsp;$nbsp;$nbsp;$nbsp;$nbsp;When I edited the threshold from 75% to 5% and ran the script, it changed the severity level to WARNING.
 
 Put everything back: SLACK_ALERT_SEVERITY=INFO, SLACK_ALERTS_ENABLED=true.
