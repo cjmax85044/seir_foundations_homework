@@ -41,7 +41,7 @@ The screenshots folder has the screenshots asked for this homework assignment.
 
 ### Evidence Table
 | Title | Key | Type | Summary | Story Points |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | -- |
 | Morning | SSC-2 | Story | Morning is a time to get up and prepare to face the day. The first part is spent trying to get my mind right and then focus on the body next. | 3 |
 | [Morning] Bathroom | SSC-7 | Subtask | Spend a few minutes saying my thanks for being alive. Check myself out in the mirror, prepare for all to see my inner and outer beauty. | 1 |
 | [Morning] Meditate | SSC-8 | Subtask | I will spend 10 or so minutes in quiet meditation. This helps me focus on the tasks for the day ahead and get me in the right mood. | 1 |
